@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Professional Portfolio Design System - Tech-inspired with smooth animations */
+
+@layer base {
+  :root {
+    /* Core palette - Blue, Black, White with Teal accents */
+    --background: 220 25% 6%;
+    --foreground: 210 40% 98%;
+    --surface: 220 25% 8%;
+    --surface-elevated: 220 25% 12%;
+    
+    /* Brand colors */
+    --primary: 217 91% 60%;
+    --primary-glow: 199 89% 48%;
+    --secondary: 195 100% 50%;
+    --accent: 166 74% 55%;
+    --accent-bright: 166 100% 70%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(199 89% 48%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(166 74% 55%) 0%, hsl(195 100% 50%) 100%);
+    --gradient-surface: linear-gradient(145deg, hsl(220 25% 8%) 0%, hsl(220 25% 12%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 25% 6%) 0%, hsl(220 25% 10%) 50%, hsl(217 91% 15%) 100%);
+    
+    /* Shadows and glows */
+    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.3);
+    --shadow-card: 0 8px 32px hsl(220 25% 4% / 0.4);
+    --shadow-elevated: 0 12px 48px hsl(220 25% 4% / 0.6);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s ease-out;
+    --bounce-smooth: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Semantic UI tokens */
+    --card: var(--surface);
+    --card-foreground: 210 40% 98%;
+    --popover: var(--surface-elevated);
+    --popover-foreground: 210 40% 98%;
+    --primary-foreground: 220 25% 6%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 25% 15%;
+    --muted-foreground: 210 20% 70%;
+    --accent-foreground: 220 25% 6%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 25% 20%;
+    --input: 220 25% 15%;
+    --ring: hsl(var(--primary));
+    
+    /* Text hierarchy */
+    --text-primary: 210 40% 98%;
+    --text-secondary: 210 20% 80%;
+    --text-muted: 210 15% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Portfolio-specific styles and components */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+  
+  .glow-effect {
+    filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.5));
+  }
+  
+  .card-elevated {
+    @apply bg-surface-elevated border border-white/10 backdrop-blur-sm;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .section-padding {
+    @apply py-20 px-6 md:px-12 lg:px-24;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-['Poppins'] overflow-x-hidden;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Portfolio animations and effects */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { 
+    filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.5)); 
+  }
+  50% { 
+    filter: drop-shadow(0 0 40px hsl(var(--primary) / 0.8)); 
+  }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-typing {
+  animation: typing 3s steps(30, end);
+}
+
+/* Particle background effect */
+.particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  background: radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Smooth scroll and transitions */
+.section-transition {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: var(--transition-smooth);
+}
+
+.section-transition.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
