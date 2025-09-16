@@ -74,7 +74,7 @@ const Hero = () => {
         {/* Profile image */}
         <div className={`flex justify-center transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <img
-            src="/hero.jpg"
+            src={`${import.meta.env.BASE_URL}hero.jpg`}
             alt="Profile photo"
             className="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border border-white/10 shadow-lg"
           />
